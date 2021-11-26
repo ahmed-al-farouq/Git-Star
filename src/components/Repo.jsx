@@ -25,6 +25,7 @@ const Repo = ({
       </span>
       <span className="owner-name">
         Submitted 30 days ago by
+        {' '}
         {ownerName}
       </span>
     </div>

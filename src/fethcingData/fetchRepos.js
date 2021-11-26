@@ -1,10 +1,10 @@
 import moment from 'moment';
 import { startFetchingRepos, fetchingReposSucceed, fetchingReposFailed } from '../redux/repos/actions';
 
-const fetchRepos = () => async (dispatch) => {
+const fetchRepos = (pageNumber) => async (dispatch) => {
   dispatch(startFetchingRepos());
   const date = moment().subtract(30, 'days').format('Y-M-D');
-  await fetch(`https://api.github.com/search/repositories?q=created:>${date}&sort=stars&order=desc`)
+  await fetch(`https://api.github.com/search/repositories?q=created:>${date}&sort=stars&order=desc&page=${pageNumber}`)
     .then((res) => res.json())
     .then((repos) => {
       const filteredRepos = repos.items.map((repo) => ({

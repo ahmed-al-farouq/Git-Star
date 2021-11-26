@@ -10,5 +10,5 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
-store.dispatch(fetchRepos());
+store.dispatch(fetchRepos(1));
 export default store;

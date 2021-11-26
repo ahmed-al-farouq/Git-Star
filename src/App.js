@@ -1,6 +1,7 @@
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 import Repo from './components/Repo';
+import PaginationBar from './components/PaginationBar';
 import './css/app.css';
 
 const App = () => {
@@ -13,25 +14,27 @@ const App = () => {
       {
         loading === false
           ? (
-            <ul className="App">
-              {
-          repos.length
-            ? (
-              repos.map((repo) => (
-                <Repo
-                  key={repo.id}
-                  ownerName={repo.ownerName}
-                  avatar={repo.avatar}
-                  repoName={repo.repoName}
-                  description={repo.description}
-                  stars={repo.stars}
-                  issues={repo.issues}
-                />
-              ))
-            )
-            : `There are no repos provide in ${date}`
-        }
-            </ul>
+            <>
+              <ul className="App">
+                {
+                  repos.length
+                    ? (
+                      repos.map((repo) => (
+                        <Repo
+                          key={repo.id}
+                          ownerName={repo.ownerName}
+                          avatar={repo.avatar}
+                          repoName={repo.repoName}
+                          description={repo.description}
+                          stars={repo.stars}
+                          issues={repo.issues}
+                        />
+                      ))
+                    )
+                    : `There are no repos provide in ${date}`
+                }
+              </ul>
+            </>
           )
           : (
             <h2>
@@ -39,6 +42,7 @@ const App = () => {
             </h2>
           )
       }
+      <PaginationBar />
     </>
   );
 };
