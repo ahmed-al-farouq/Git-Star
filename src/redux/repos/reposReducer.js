@@ -1,7 +1,7 @@
 import { FETCHING_REPOS_FAILED, FETCHING_REPOS_SUCCEED, START_FETCHING_REPOS } from './actions';
 
 const initState = {
-  loading: true,
+  loading: false,
   repos: [],
   error: '',
 };
