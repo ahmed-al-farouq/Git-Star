@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import fetchRepos from '../fethcingData/fetchRepos';
 
 const PaginationBar = () => {
   const btns = [];
   const [page, setPage] = useState('1');
+  const repos = useSelector((state) => state.reposReducer.repos);
   const dispatch = useDispatch();
   const handelPagination = (e) => {
     setPage(e.target.textContent);
@@ -29,7 +30,9 @@ const PaginationBar = () => {
   return (
     <div className="pagination">
       {
-        btns
+        repos.length
+          ? btns
+          : null
       }
     </div>
   );

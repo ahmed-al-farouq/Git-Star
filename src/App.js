@@ -8,14 +8,13 @@ const App = () => {
   const repos = useSelector((state) => state.reposReducer.repos);
   const loading = useSelector((state) => state.reposReducer.loading);
   const date = moment().subtract(30, 'days').format('Y-M-D');
-
   return (
     <>
       {
         loading === false
           ? (
             <>
-              <ul className="App">
+              <ul className="app">
                 {
                   repos.length
                     ? (
@@ -31,15 +30,24 @@ const App = () => {
                         />
                       ))
                     )
-                    : `There are no repos provide in ${date}`
+                    : (
+                      <h1 className="no-repos">
+                        There are no repos provided in
+                        {' '}
+                        {date}
+                      </h1>
+                    )
                 }
               </ul>
             </>
           )
           : (
-            <h2>
-              loading
-            </h2>
+            <div className="loading">
+              <h2>
+                loading...
+              </h2>
+              <span />
+            </div>
           )
       }
       <PaginationBar />

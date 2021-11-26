@@ -8,10 +8,77 @@ body,
   overflow-x: hidden;
 }
 
-ul {
+ul.app {
   list-style: none;
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
+}
+
+ul.app::after {
+  content: '';
+  display: block;
+  margin: 20px auto;
+  border: 2px solid rgb(239, 239, 239);
+  border-radius: 2px;
+  width: 50%;
+}
+
+/* Loading  */
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgb(239, 239, 239);
+  color: rgb(32, 32, 51);
+  transform: translateZ(1px);
+}
+
+.loading h2 {
+  font-size: 30px;
+}
+
+.loading > span {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  background: rgb(32, 32, 51);
+  animation: loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes loading {
+  0%,
+  100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+/* No Repos */
+h1.no-repos {
+  text-align: center;
+  color: rgb(32, 32, 51);
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
 }
