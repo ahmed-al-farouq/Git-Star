@@ -9,9 +9,9 @@ const fetchRepos = () => async (dispatch) => {
     .then((repos) => {
       const filteredRepos = repos.items.map((repo) => ({
         id: repo.id,
-        owner_name: repo.owner.login,
+        ownerName: repo.owner.login,
         avatar: repo.owner.avatar_url,
-        repo_name: repo.name,
+        repoName: repo.name,
         description: repo.description,
         stars: repo.stargazers_count,
         issues: repo.open_issues_count,
