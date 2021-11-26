@@ -4,19 +4,23 @@ import propTypes from 'prop-types';
 const Repo = ({
   ownerName, avatar, repoName, description, stars, issues,
 }) => (
-  <li>
+  <li className="repo">
     <img src={avatar} alt={ownerName} />
     <div>
       <h2 className="repo-name">
         {repoName}
       </h2>
       <p className="desc">
-        {description === null ? 'there is no description' : description}
+        {description === null ? 'There is no description' : description}
       </p>
       <span className="stars">
+        Stars:
+        {' '}
         {stars}
       </span>
       <span className="issues">
+        Issues:
+        {' '}
         {issues}
       </span>
       <span className="owner-name">
