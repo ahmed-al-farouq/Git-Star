@@ -1,11 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Repo = ({
   ownerName, avatar, repoName, description, stars, issues,
 }) => (
   <li className="repo">
-    <img src={avatar} alt={ownerName} />
+    <LazyLoadImage effect="blur" src={avatar} alt={ownerName} />
     <div>
       <h2 className="repo-name">
         {repoName}
